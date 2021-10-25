@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nest_egg/dashboard.dart';
 import 'package:nest_egg/page_selector.dart';
-import 'package:nest_egg/utils/colors.dart';
+import 'package:nest_egg/utils/customcolors.dart';
 
 class NestEggScaffold extends StatefulWidget {
   const NestEggScaffold({Key? key}) : super(key: key);

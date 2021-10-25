@@ -1,37 +1,49 @@
+
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:nest_egg/utils/colors.dart';
+import 'package:nest_egg/utils/customcolors.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  CustomColors customColors = CustomColors();
-
+const backgroundStartColor = Color(0xFFFFD500);
+const backgroundEndColor = Color(0xFFF6A00C);
+CustomColors customColors = CustomColors();
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: customColors.dashboardTheme,
-      body: Stack(
-        children: [
-          loginBackgroundWidget(),
-          loginFieldWidget()
-        ],
-      ),
-    );
+    return Expanded(
+        child: Container(
+            color: customColors.dashboardTheme,
+            child: Column(children: [
+              WindowTitleBarBox(
+                  child: Row(children: [
+                    Expanded(child: MoveWindow()),
+                    WindowButtons()
+                  ])),
+            ])));
   }
+}
 
-  Widget loginBackgroundWidget(){
-    return Container();
-  }
+final buttonColors = WindowButtonColors(
+    iconNormal: customColors.selectedDashboardItemTheme,
+    mouseOver: customColors.selectedDashboardItemThemeB,
+    mouseDown: Color(0xFF805306),
+    iconMouseOver: Color(0xFF805306),
+    iconMouseDown: Color(0xFFFFD500));
 
-  Widget loginFieldWidget() {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 1000),
+final closeButtonColors = WindowButtonColors(
+    mouseOver: customColors.selectedDashboardItemThemeB,
+    mouseDown: Color(0xFFB71C1C),
+    iconNormal: customColors.selectedDashboardItemTheme,
+    iconMouseOver: Colors.white);
 
+class WindowButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        MinimizeWindowButton(colors: buttonColors),
+        MaximizeWindowButton(colors: buttonColors),
+        CloseWindowButton(colors: closeButtonColors),
+      ],
     );
   }
 }
