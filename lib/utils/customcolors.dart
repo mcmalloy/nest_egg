@@ -17,10 +17,10 @@ class CustomColors{
 
 
   // Themes from https://dribbble.com/shots/15907607-Online-Education-Dashboard-UI-Dark-Mode
-  Color dribblePurple = HexColor("#4F46BA");
-  Color dribbleSilver = HexColor("#F1F5FB");
-  Color dribbleBlack = HexColor("#202020");
-  Color dribbleOrange = HexColor("#F9896B");
-  Color dribbleWhite = HexColor("#FFFFFF");
-  Color dribbleSilverBlue = HexColor("#C1CEE5");
+  HexColor dribblePurple = HexColor("#4F46BA");
+  HexColor dribbleSilver = HexColor("#F1F5FB");
+  HexColor dribbleBlack = HexColor("#202020");
+  HexColor dribbleOrange = HexColor("#F9896B");
+  HexColor dribbleWhite = HexColor("#FFFFFF");
+  HexColor dribbleSilverBlue = HexColor("#C1CEE5");
 }

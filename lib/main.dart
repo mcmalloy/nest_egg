@@ -8,12 +8,13 @@ auto bdw = bitsdojo_window_configure(BDW_CUSTOM_FRAME | BDW_HIDE_ON_STARTUP);
 
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:nest_egg/dashboard.dart';
 import 'package:nest_egg/login_screen.dart';
 import 'package:nest_egg/utils/customcolors.dart';
 
 CustomColors customColors = CustomColors();
 void main() {
-  runApp(MyApp());
+  runApp(NestEgg());
   doWhenWindowReady(() {
     final win = appWindow;
     final initialSize = Size(1920, 1080);
@@ -27,7 +28,7 @@ void main() {
 
 const borderColor = Color(0xFF805306);
 
-class MyApp extends StatelessWidget {
+class NestEgg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,6 +37,6 @@ class MyApp extends StatelessWidget {
             body: WindowBorder(
                 color: customColors.dashboardTheme,
                 width: 1,
-                child: LoginPage())));
+                child: const DashboardPage())));
   }
 }
