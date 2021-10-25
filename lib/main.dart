@@ -8,8 +8,8 @@ auto bdw = bitsdojo_window_configure(BDW_CUSTOM_FRAME | BDW_HIDE_ON_STARTUP);
 
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:nest_egg/dashboard.dart';
-import 'package:nest_egg/login_screen.dart';
+import 'package:nest_egg/Pages/dashboard.dart';
+import 'package:nest_egg/Pages/login_screen.dart';
 import 'package:nest_egg/utils/customcolors.dart';
 
 CustomColors customColors = CustomColors();

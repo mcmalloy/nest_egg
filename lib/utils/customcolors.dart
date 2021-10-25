@@ -23,4 +23,6 @@ class CustomColors{
   HexColor dribbleOrange = HexColor("#F9896B");
   HexColor dribbleWhite = HexColor("#FFFFFF");
   HexColor dribbleSilverBlue = HexColor("#C1CEE5");
+  HexColor dribblePageViewBackground = HexColor("#1B1C31");
+  HexColor dribbleBackground = HexColor("#22223A");
 }

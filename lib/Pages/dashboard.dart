@@ -2,6 +2,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:nest_egg/Pages/dashboard_page.dart';
 import 'package:nest_egg/utils/CustomColors.dart';
 
 CustomColors customColors = CustomColors();
@@ -26,7 +27,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: customColors.dashboardTheme,
+        backgroundColor: HexColor("#22223A"),
         body: Stack(
           children: [
             Column(children: [
@@ -51,7 +52,7 @@ class _DashboardPageState extends State<DashboardPage> {
             Positioned(
               top: 92,
               bottom: 0,
-              right: 40,
+              right: 0,
               left: 400,
               child: dashboardPageView(),
             ),
@@ -85,11 +86,12 @@ class _DashboardPageState extends State<DashboardPage> {
 
   Widget dashboardWidget() {
     return Padding(
-      padding: const EdgeInsets.only(right: 40),
+      padding: const EdgeInsets.only(left: 20),
       child: Column(
         children: [
           dashboardItemCard(0, Icons.dashboard, "Dashboard"),
-          dashboardItemCard(1, Icons.insert_chart, "Mine investeringer")
+          dashboardItemCard(1, Icons.insert_chart, "Mine Investeringer"),
+          dashboardItemCard(2, Icons.account_balance, "Mine Udgifter")
         ],
       ),
     );
@@ -97,6 +99,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   Widget dashboardItemCard(int index, IconData icon, String title) {
     bool _isActive = _selectedDashboardIndex == index;
+    Radius _radius = const Radius.circular(32.0);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: InkWell(
@@ -111,10 +114,13 @@ class _DashboardPageState extends State<DashboardPage> {
           duration: const Duration(milliseconds: 500),
           curve: Curves.fastOutSlowIn,
           height: 70,
-          width: 360,
-          color: _isActive
-              ? customColors.dribbleSilver.withOpacity(0.15)
-              : customColors.dashboardTheme,
+          width: _isActive ? 360 : 320,
+          decoration: BoxDecoration(
+              color: _isActive
+                  ? customColors.dribbleSilver.withOpacity(0.15)
+                  : customColors.dashboardTheme,
+              borderRadius:
+                  BorderRadius.only(topLeft: _radius, bottomLeft: _radius)),
           child: Row(
             children: [
               const SizedBox(
@@ -127,7 +133,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     : customColors.dribbleWhite.withOpacity(0.4),
               ),
               const SizedBox(
-                width: 30,
+                width: 10,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
@@ -151,10 +157,8 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget logoutButton() {
     bool highlightedColor = false;
     return InkWell(
-      onTap: (){
-
-      },
-      onHover: (_isHovering){
+      onTap: () {},
+      onHover: (_isHovering) {
         setState(() {
           highlightedColor = _isHovering;
         });
@@ -168,7 +172,9 @@ class _DashboardPageState extends State<DashboardPage> {
               color: Colors.grey,
               size: 26,
             ),
-            Padding(padding: EdgeInsets.symmetric(horizontal: 6),),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 6),
+            ),
             Text(
               "Log Ud",
               style: GoogleFonts.montserrat(color: Colors.grey, fontSize: 26),
@@ -187,10 +193,7 @@ class _DashboardPageState extends State<DashboardPage> {
         controller: controller,
         scrollDirection: Axis.vertical,
         children: [
-          Container(
-            color: customColors.dribblePurple,
-            height: 100,
-          ),
+          const OverviewPage(),
           Container(
             color: customColors.dribbleOrange,
             height: 100,
